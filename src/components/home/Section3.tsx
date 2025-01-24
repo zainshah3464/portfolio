@@ -1,9 +1,75 @@
-import ConstrainedBox from "@/components/core/constrained-box";
-import ResponsiveBox from "@/components/core/ResponsiveBox";
-import SectionTitle from "@/components/common/SectionTitle";
-import { Timeline } from "@/components/common/timeline";
-import ExperienceItem from "./ui/ExperienceItem";
-import experiences from "@/data/experiences";
+import React from "react";
+
+interface SectionTitleProps {
+  children: React.ReactNode;
+  classNames?: string;
+}
+
+const SectionTitle: React.FC<SectionTitleProps> = ({ children, classNames }) => {
+  return <h2 className={classNames}>{children}</h2>;
+};
+
+interface ConstrainedBoxProps {
+  children: React.ReactNode;
+  classNames?: string;
+}
+
+const ConstrainedBox: React.FC<ConstrainedBoxProps> = ({ children, classNames }) => {
+  return <div className={classNames}>{children}</div>;
+};
+
+interface ResponsiveBoxProps {
+  children: React.ReactNode;
+  classNames?: string;
+  id?: string;
+}
+
+const ResponsiveBox: React.FC<ResponsiveBoxProps> = ({ children, classNames, id }) => {
+  return (
+    <div className={classNames} id={id}>
+      {children}
+    </div>
+  );
+};
+
+interface ExperienceItemProps {
+  data: any;
+  classNames?: string;
+}
+
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ data, classNames }) => {
+  return <div className={classNames}>{data.title}</div>;
+};
+
+interface TimelineProps {
+  data: { title: string; content: React.ReactNode }[];
+}
+
+const Timeline: React.FC<TimelineProps> = ({ data }) => {
+  return (
+    <div>
+      {data.map((item, index) => (
+        <div key={index}>
+          <h3>{item.title}</h3>
+          {item.content}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const experiences = [
+  {
+    title: "Software Developer at XYZ",
+    startDate: "Jan 2022",
+    endDate: "Dec 2023",
+  },
+  {
+    title: "Intern at ABC",
+    startDate: "May 2021",
+    endDate: "Dec 2021",
+  },
+];
 
 const HomeSection3 = ({ id }: { id: string }) => {
   return (
