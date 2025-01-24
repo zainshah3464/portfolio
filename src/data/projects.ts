@@ -69,8 +69,7 @@ const projects: IProjectItem[] = [
     icon: "/skills/cpp.png",
     repoType: RepoType.Public,
     projectType: ProjectType.Personal,
-    githubUrl: "https://github.com/yourusername/bank-atm-management-system-cpp",
-    exeFile: "/images/FPBP(BAMS).exe", // Path to your EXE file
+
     tags: ["C++", "OOP", "Banking System"],
   },  // <-- Add this comma to fix the error
 
